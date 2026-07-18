@@ -2,129 +2,448 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Kế Hoạch Khôi Phục Fanpage Yoga Hoa Sen DT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-light: #dcfce7;
+            --primary: #22c55e;
+            --primary-dark: #15803d;
+            --primary-darker: #14532d;
+            --accent: #fde047;
+            --text-main: #1f2937;
+            --text-light: #4b5563;
+            --bg-color: #f0fdf4;
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --danger: #ef4444;
+            --danger-bg: #fef2f2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body, html {
-            margin: 0; padding: 0;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f0fdf4;
-            color: #1f2937;
-            overflow: hidden; /* Ngăn scroll body */
-        }
-       .container {
-            height: 100vh;
-            width: 100vw;
-            overflow-y: scroll;
-            scroll-snap-type: y mandatory;
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
             scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
         }
-       .slide {
-            height: 100vh;
-            width: 100vw;
-            scroll-snap-align: start;
+
+        /* Gradient Backgrounds */
+        .bg-zen {
+            background: linear-gradient(135deg, #064e3b 0%, #166534 50%, #15803d 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bg-zen::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at top right, rgba(255,255,255,0.1) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .section {
+            padding: 60px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 25px;
-            box-sizing: border-box;
-            position: relative;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
         }
-       .bg-main { background: linear-gradient(135deg, #166534, #15803d); color: white; }
-       .bg-light { background: #ffffff; }
-       .bg-alert { background: #fff1f2; color: #9f1239; }
-        
-        h1 { font-size: 28px; text-align: center; margin-bottom: 15px; line-height: 1.3; }
-        h2 { font-size: 22px; color: #166534; border-bottom: 2px solid #22c55e; padding-bottom: 8px; margin-top: 0;}
-       .bg-main h2 { color: #bbf7d0; border-bottom-color: #4ade80; }
-       .bg-alert h2 { color: #be123c; border-bottom-color: #f43f5e; }
-        
-        p, li { font-size: 16px; line-height: 1.6; margin-bottom: 12px; }
-        ul { padding-left: 20px; }
-        
-       .highlight { font-weight: bold; color: #dc2626; }
-       .bg-main.highlight { color: #fde047; }
-        
-       .swipe-icon {
+
+        /* Typography */
+        h1 {
+            font-size: 2.2rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        h1 span {
+            color: var(--accent);
+            display: block;
+            margin-top: 10px;
+            font-size: 2.6rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary-darker);
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2::after {
+            content: '';
             position: absolute;
-            bottom: 20px;
+            bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 14px;
-            opacity: 0.7;
-            animation: bounce 2s infinite;
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
         }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        /* Cards & Glassmorphism */
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255,255,255,0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .card-alert {
+            border-left: 4px solid var(--danger);
+            background: var(--danger-bg);
+        }
+
+        .card-alert h3 {
+            color: #9f1239;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .card-success {
+            border-left: 4px solid var(--primary);
+        }
+
+        .card-success h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 12px;
+            color: var(--text-light);
+        }
+
+        ul li::before {
+            content: '•';
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        .card-alert ul li::before {
+            color: var(--danger);
+        }
+
+        .highlight {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .card-alert .highlight {
+            color: #be123c;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary-light);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -36px;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--primary-light);
+        }
+
+        .timeline-title {
+            font-weight: 700;
+            color: var(--primary-darker);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        /* Pricing & Closing Section */
+        .pricing-box {
+            background: linear-gradient(135deg, #166534, #15803d);
+            color: white;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(22, 101, 52, 0.3);
+            margin-top: 20px;
+        }
+
+        .price-amount {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin: 15px 0;
+        }
+
+        .price-desc {
+            opacity: 0.9;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--primary-darker);
+            padding: 15px 35px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(253, 224, 71, 0.4);
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(253, 224, 71, 0.6);
+            background: #fef08a;
+        }
+
+        .guarantee {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Floating Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0.8;
+        }
+
+        .scroll-indicator svg {
+            width: 24px;
+            height: 24px;
+            margin-top: 5px;
+        }
+
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
             40% { transform: translate(-50%, -10px); }
             60% { transform: translate(-50%, -5px); }
         }
-       .card {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 12px;
-            padding: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            color: #1f2937;
+
+        @media (max-width: 480px) {
+            h1 { font-size: 1.8rem; }
+            h1 span { font-size: 2.2rem; }
+            .section { padding: 40px 15px; }
+            .card { padding: 20px; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="slide bg-main">
-        <h1>BẢN CHẨN ĐOÁN & KẾ HOẠCH VỰC DẬY FANPAGE<br><br><span style="color: #fde047;">YOGA HOA SEN DT</span></h1>
-        <p style="text-align: center; font-size: 18px;">Giải pháp "Phòng Marketing Thuê Ngoài" tối ưu chi phí & chuyển đổi.</p>
-        <div class="swipe-icon">Vuốt lên để xem tiếp ⬇️</div>
-    </div>
-
-    <div class="slide bg-alert">
-        <h2>❌ Thực Trạng 1: Tệp Khách Sai Lệch</h2>
-        <ul>
-            <li><span class="highlight">80% người theo dõi không ở TP.HCM:</span> Mặc dù có hơn 11.500 Followers, nhưng đa số nằm ngoài khu vực, khiến việc quảng cáo vào tệp này hoàn toàn vô ích.</li>
-            <li><span class="highlight">Tương tác thật = 0:</span> Khách hàng cũ đang quay lưng (âm 60 lượt theo dõi/tháng) vì nội dung video không giữ được chân người xem (chỉ lướt qua trong 5-14 giây).</li>
-        </ul>
-        <div class="swipe-icon">Vuốt lên ⬇️</div>
-    </div>
-
-    <div class="slide bg-alert">
-        <h2>❌ Thực Trạng 2: Lỗi Thuật Toán Nhận Diện</h2>
-        <ul>
-            <li><span class="highlight">Bị xếp nhầm thành "Cửa hàng bách hóa":</span> Facebook đang phân phối nội dung của trung tâm cho những người thích đi siêu thị mua sắm, thay vì những người quan tâm sức khỏe và lối sống.</li>
-            <li><span class="highlight">Đăng bài quá nhiều (37 bài/tháng):</span> Việc spam nội dung không đúng tệp khiến Fanpage bị AI đánh giá thấp và bóp tương tác nghiêm trọng.</li>
-        </ul>
-        <div class="swipe-icon">Vuốt lên ⬇️</div>
-    </div>
-
-    <div class="slide bg-alert">
-        <h2>❌ Thực Trạng 3: Đứt Gãy Phễu Chốt Sale</h2>
-        <ul>
-            <li><span class="highlight">Có tin nhắn nhưng không có đơn:</span> Ngân sách 15 triệu đem về 157 tin nhắn (giá 40k-70k/tin là rất tốt). Tuy nhiên chốt đơn bằng 0 do thông điệp "giảm giá sốc" gây hiểu lầm.</li>
-            <li><span class="highlight">Quảng cáo ngắt quãng:</span> Việc chạy tắt/mở liên tục khiến thuật toán không thể học được tệp khách quen.</li>
-        </ul>
-        <div class="swipe-icon">Vuốt lên ⬇️</div>
-    </div>
-
-    <div class="slide bg-light">
-        <h2>✅ Giải Pháp & Hạng Mục Công Việc</h2>
-        <div class="card">
-            <p><strong>1. Sửa lỗi kỹ thuật:</strong> Đổi danh mục trang về "Dịch vụ phong cách sống" để AI phân phối đúng đối tượng.</p>
-            <p><strong>2. Sản xuất nội dung (8-12 clip/tháng):</strong> Cắt ghép video dọc, lồng chữ và tiêu đề thu hút trong 3s đầu (Tập trung đẩy mạnh lợi ích của Yoga Bay và Yoga Trị Liệu).[1] Dừng việc spam bài rác.</p>
-            <p><strong>3. Vận hành Ads 15 Triệu/tháng:</strong> Chạy liên tục 30 ngày. Tạo tệp Lookalike (từ SĐT học viên thật) và khóa bán kính 3-5km xung quanh cơ sở Tân Quy (Số 90 Đường 37).[1]</p>
-            <p><strong>4. Tư vấn chốt Sale:</strong> Hỗ trợ điều chỉnh kịch bản inbox, mời khách đến trải nghiệm thay vì báo giá một cục.</p>
+    <!-- Hero Section -->
+    <div class="bg-zen hero">
+        <div style="max-width: 600px; z-index: 1;">
+            <div style="display: inline-block; padding: 5px 15px; background: rgba(255,255,255,0.2); border-radius: 20px; font-size: 0.85rem; margin-bottom: 20px; backdrop-filter: blur(5px);">BẢN CHẨN ĐOÁN & ĐỀ XUẤT</div>
+            <h1>Kế Hoạch Vực Dậy Fanpage <span>YOGA HOA SEN DT</span></h1>
+            <p class="hero-subtitle">Giải pháp "Phòng Marketing Thuê Ngoài" tối ưu chi phí & bứt phá chuyển đổi học viên mới.</p>
         </div>
-        <div class="swipe-icon" style="color: #1f2937;">Vuốt lên ⬇️</div>
+        <div class="scroll-indicator">
+            <span style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Khám Phá Ngay</span>
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </div>
     </div>
 
-    <div class="slide bg-main">
-        <h2>⏱️ Lộ Trình Thực Hiện</h2>
-        <ul>
-            <li><span class="highlight">Tuần 1 - Tái cấu trúc:</span> Dọn dẹp lỗi kỹ thuật Fanpage, thiết lập tệp quảng cáo, xuất bản 3 video "mồi" chất lượng cao đầu tiên.</li>
-            <li><span class="highlight">Tuần 2 & 3 - Tối ưu chuyển đổi:</span> Chạy Ads liên tục 500k/ngày. Cùng lễ tân đo lường chất lượng tin nhắn và điều chỉnh kịch bản chốt khách đến tập thử.</li>
-            <li><span class="highlight">Tuần 4 - Đánh giá:</span> Báo cáo số lượng học viên mới đăng ký và lên kịch bản video cho tháng tiếp theo.</li>
-        </ul>
-        <p style="text-align: center; margin-top: 20px; font-weight: bold; color: #bbf7d0;">Mục tiêu: Dùng 15 triệu Ads để mang về học viên thật, không nuôi tệp khách ảo!</p>
+    <!-- Thực Trạng Section -->
+    <div class="section" id="diagnostics">
+        <h2>Thực Trạng Hiện Tại</h2>
+        
+        <div class="card card-alert">
+            <h3>❌ 1. Tệp Khách Sai Lệch</h3>
+            <ul>
+                <li><span class="highlight">80% Follower không ở TP.HCM:</span> Hơn 11.500 người theo dõi nhưng đa số khác khu vực, quảng cáo vào tệp này hoàn toàn lãng phí ngân sách.</li>
+                <li><span class="highlight">Tương tác thật tụt giảm:</span> Âm ~60 lượt theo dõi/tháng do nội dung video không giữ chân được người xem (thời lượng xem chỉ 5-14 giây).</li>
+            </ul>
+        </div>
+
+        <div class="card card-alert">
+            <h3>❌ 2. Lỗi Thuật Toán Nhận Diện</h3>
+            <ul>
+                <li><span class="highlight">Xếp nhầm vào "Cửa hàng bách hóa":</span> AI Facebook đang phân phối nội dung cho người thích mua sắm siêu thị thay vì tệp quan tâm sức khỏe, Yoga.</li>
+                <li><span class="highlight">Spam bài (37 bài/tháng):</span> Đăng quá nhiều nội dung sai tệp khiến page bị đánh giá thấp và bóp reach nghiêm trọng.</li>
+            </ul>
+        </div>
+
+        <div class="card card-alert">
+            <h3>❌ 3. Đứt Gãy Phễu Chốt Sale</h3>
+            <ul>
+                <li><span class="highlight">Có tin nhắn, KHÔNG có đơn:</span> 15 triệu ngân sách thu về 157 tin (giá rất tốt 40-70k/tin), nhưng tỷ lệ chốt = 0 do thông điệp "giảm giá sốc" gây hiểu lầm.</li>
+                <li><span class="highlight">Quảng cáo ngắt quãng:</span> Tắt/mở chiến dịch liên tục làm đứt gãy quá trình máy học của thuật toán.</li>
+            </ul>
+        </div>
     </div>
-</div>
+
+    <!-- Giải Pháp Section -->
+    <div style="background-color: white;">
+        <div class="section">
+            <h2>Giải Pháp Đề Xuất</h2>
+            
+            <div class="card card-success">
+                <h3>✅ 1. Sửa Lỗi Kỹ Thuật & Tái Cấu Trúc</h3>
+                <p style="color: var(--text-light);">Đổi danh mục trang chuẩn về <strong>"Dịch vụ phong cách sống/Sức khỏe"</strong>. Dọn dẹp nội dung rác để AI học lại tệp khách chuẩn.</p>
+            </div>
+
+            <div class="card card-success">
+                <h3>✅ 2. Chiến Lược Nội Dung (8-12 clip/tháng)</h3>
+                <p style="color: var(--text-light);">Tập trung video dọc ngắn, lồng chữ hook mạnh 3s đầu. Nhấn mạnh USP: <strong>Yoga Bay & Yoga Trị Liệu</strong>. Dừng hoàn toàn việc đăng bài vô tội vạ.</p>
+            </div>
+
+            <div class="card card-success">
+                <h3>✅ 3. Vận Hành Ads Chuyên Sâu</h3>
+                <p style="color: var(--text-light);">Duy trì ngân sách <strong>15 Triệu/tháng chạy liên tục 30 ngày</strong>. Tạo tệp Lookalike từ data SĐT học viên cũ. Khóa mục tiêu bán kính 3-5km quanh 90 Đường 37, Tân Quy.</p>
+            </div>
+
+            <div class="card card-success">
+                <h3>✅ 4. Tối Ưu Kịch Bản Chốt Sale</h3>
+                <p style="color: var(--text-light);">Hỗ trợ thiết kế lại phễu tư vấn inbox: Không báo giá ngay. Chuyển hướng mục tiêu sang <strong>mời khách đến trải nghiệm thực tế</strong> tại phòng tập.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lộ Trình Section -->
+    <div class="section">
+        <h2>Lộ Trình Triển Khai</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-title">Tuần 1: Tái thiết & Làm sạch</div>
+                <p style="color: var(--text-light); font-size: 0.95rem;">Xử lý triệt để lỗi kỹ thuật Fanpage, thiết lập tệp quảng cáo chuẩn. Xuất bản 3 video "mồi" chất lượng cao để kích thích AI nhận diện lại.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-title">Tuần 2 & 3: Tăng tốc & Chuyển đổi</div>
+                <p style="color: var(--text-light); font-size: 0.95rem;">Chạy Ads liên tục 500k/ngày. Phối hợp sát sao cùng Lễ tân để đo lường, tinh chỉnh kịch bản inbox chốt khách đến tập thử.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-title">Tuần 4: Đo lường & Mở rộng</div>
+                <p style="color: var(--text-light); font-size: 0.95rem;">Đánh giá ROI (Số lượng học viên thực tế đăng ký/Ngân sách). Lên kịch bản nội dung và chiến lược scale cho tháng tiếp theo.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pricing & CTA Section -->
+    <div style="background-color: white; padding-bottom: 60px;">
+        <div class="section">
+            <h2>Mức Đầu Tư & Cam Kết</h2>
+            
+            <div class="card" style="text-align: center; border-color: var(--primary-light);">
+                <h3 style="color: var(--primary-dark); margin-bottom: 15px;">Mục Tiêu Cốt Lõi</h3>
+                <p style="font-size: 1.1rem; color: var(--text-main); font-weight: 500;">
+                    Dùng ngân sách Ads để mang về <span style="color: var(--primary-darker); font-weight: 700; background: var(--primary-light); padding: 2px 8px; border-radius: 4px;">HỌC VIÊN THẬT</span><br>Kiên quyết không nuôi tệp khách ảo!
+                </p>
+            </div>
+
+            <div class="pricing-box">
+                <div style="font-size: 1.2rem; font-weight: 600;">Gói Vận Hành & Tối Ưu Toàn Diện</div>
+                <div class="price-amount">Chỉ Từ 5.000.000đ<span style="font-size: 1rem; color: #bbf7d0; font-weight: 400;">/tháng</span></div>
+                <div class="price-desc">(Chưa bao gồm ngân sách Ads do trung tâm tự chi trả qua thẻ)</div>
+                
+                <ul style="text-align: left; max-width: 400px; margin: 0 auto 30px; font-size: 0.95rem;">
+                    <li style="color: #fff;"><span style="color: #fff;">Quản trị Fanpage & Sửa lỗi kỹ thuật</span></li>
+                    <li style="color: #fff;"><span style="color: #fff;">Sản xuất 8-12 Video dọc chất lượng</span></li>
+                    <li style="color: #fff;"><span style="color: #fff;">Setup & Tối ưu Quảng cáo hàng ngày</span></li>
+                    <li style="color: #fff;"><span style="color: #fff;">Tư vấn phễu & Kịch bản sale</span></li>
+                </ul>
+
+                <a href="javascript:void(0)" onclick="alert('Cảm ơn bạn! Chúng tôi sẽ liên hệ ngay để chốt hợp đồng.')" class="btn">Ký Hợp Đồng Ngay</a>
+            </div>
+
+            <div class="guarantee">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                Cam kết minh bạch ngân sách & báo cáo hàng tuần
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
