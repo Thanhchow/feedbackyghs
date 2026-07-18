@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kế Hoạch Khôi Phục Fanpage Yoga Hoa Sen DT</title>
+    <style>
+        body, html {
+            margin: 0; padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0fdf4;
+            color: #1f2937;
+            overflow: hidden; /* Ngăn scroll body */
+        }
+       .container {
+            height: 100vh;
+            width: 100vw;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+       .slide {
+            height: 100vh;
+            width: 100vw;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 25px;
+            box-sizing: border-box;
+            position: relative;
+        }
+       .bg-main { background: linear-gradient(135deg, #166534, #15803d); color: white; }
+       .bg-light { background: #ffffff; }
+       .bg-alert { background: #fff1f2; color: #9f1239; }
+        
+        h1 { font-size: 28px; text-align: center; margin-bottom: 15px; line-height: 1.3; }
+        h2 { font-size: 22px; color: #166534; border-bottom: 2px solid #22c55e; padding-bottom: 8px; margin-top: 0;}
+       .bg-main h2 { color: #bbf7d0; border-bottom-color: #4ade80; }
+       .bg-alert h2 { color: #be123c; border-bottom-color: #f43f5e; }
+        
+        p, li { font-size: 16px; line-height: 1.6; margin-bottom: 12px; }
+        ul { padding-left: 20px; }
+        
+       .highlight { font-weight: bold; color: #dc2626; }
+       .bg-main.highlight { color: #fde047; }
+        
+       .swipe-icon {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 14px;
+            opacity: 0.7;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+            40% { transform: translate(-50%, -10px); }
+            60% { transform: translate(-50%, -5px); }
+        }
+       .card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            color: #1f2937;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="slide bg-main">
+        <h1>BẢN CHẨN ĐOÁN & KẾ HOẠCH VỰC DẬY FANPAGE<br><br><span style="color: #fde047;">YOGA HOA SEN DT</span></h1>
+        <p style="text-align: center; font-size: 18px;">Giải pháp "Phòng Marketing Thuê Ngoài" tối ưu chi phí & chuyển đổi.</p>
+        <div class="swipe-icon">Vuốt lên để xem tiếp ⬇️</div>
+    </div>
+
+    <div class="slide bg-alert">
+        <h2>❌ Thực Trạng 1: Tệp Khách Sai Lệch</h2>
+        <ul>
+            <li><span class="highlight">80% người theo dõi không ở TP.HCM:</span> Mặc dù có hơn 11.500 Followers, nhưng đa số nằm ngoài khu vực, khiến việc quảng cáo vào tệp này hoàn toàn vô ích.</li>
+            <li><span class="highlight">Tương tác thật = 0:</span> Khách hàng cũ đang quay lưng (âm 60 lượt theo dõi/tháng) vì nội dung video không giữ được chân người xem (chỉ lướt qua trong 5-14 giây).</li>
+        </ul>
+        <div class="swipe-icon">Vuốt lên ⬇️</div>
+    </div>
+
+    <div class="slide bg-alert">
+        <h2>❌ Thực Trạng 2: Lỗi Thuật Toán Nhận Diện</h2>
+        <ul>
+            <li><span class="highlight">Bị xếp nhầm thành "Cửa hàng bách hóa":</span> Facebook đang phân phối nội dung của trung tâm cho những người thích đi siêu thị mua sắm, thay vì những người quan tâm sức khỏe và lối sống.</li>
+            <li><span class="highlight">Đăng bài quá nhiều (37 bài/tháng):</span> Việc spam nội dung không đúng tệp khiến Fanpage bị AI đánh giá thấp và bóp tương tác nghiêm trọng.</li>
+        </ul>
+        <div class="swipe-icon">Vuốt lên ⬇️</div>
+    </div>
+
+    <div class="slide bg-alert">
+        <h2>❌ Thực Trạng 3: Đứt Gãy Phễu Chốt Sale</h2>
+        <ul>
+            <li><span class="highlight">Có tin nhắn nhưng không có đơn:</span> Ngân sách 15 triệu đem về 157 tin nhắn (giá 40k-70k/tin là rất tốt). Tuy nhiên chốt đơn bằng 0 do thông điệp "giảm giá sốc" gây hiểu lầm.</li>
+            <li><span class="highlight">Quảng cáo ngắt quãng:</span> Việc chạy tắt/mở liên tục khiến thuật toán không thể học được tệp khách quen.</li>
+        </ul>
+        <div class="swipe-icon">Vuốt lên ⬇️</div>
+    </div>
+
+    <div class="slide bg-light">
+        <h2>✅ Giải Pháp & Hạng Mục Công Việc</h2>
+        <div class="card">
+            <p><strong>1. Sửa lỗi kỹ thuật:</strong> Đổi danh mục trang về "Dịch vụ phong cách sống" để AI phân phối đúng đối tượng.</p>
+            <p><strong>2. Sản xuất nội dung (8-12 clip/tháng):</strong> Cắt ghép video dọc, lồng chữ và tiêu đề thu hút trong 3s đầu (Tập trung đẩy mạnh lợi ích của Yoga Bay và Yoga Trị Liệu).[1] Dừng việc spam bài rác.</p>
+            <p><strong>3. Vận hành Ads 15 Triệu/tháng:</strong> Chạy liên tục 30 ngày. Tạo tệp Lookalike (từ SĐT học viên thật) và khóa bán kính 3-5km xung quanh cơ sở Tân Quy (Số 90 Đường 37).[1]</p>
+            <p><strong>4. Tư vấn chốt Sale:</strong> Hỗ trợ điều chỉnh kịch bản inbox, mời khách đến trải nghiệm thay vì báo giá một cục.</p>
+        </div>
+        <div class="swipe-icon" style="color: #1f2937;">Vuốt lên ⬇️</div>
+    </div>
+
+    <div class="slide bg-main">
+        <h2>⏱️ Lộ Trình Thực Hiện</h2>
+        <ul>
+            <li><span class="highlight">Tuần 1 - Tái cấu trúc:</span> Dọn dẹp lỗi kỹ thuật Fanpage, thiết lập tệp quảng cáo, xuất bản 3 video "mồi" chất lượng cao đầu tiên.</li>
+            <li><span class="highlight">Tuần 2 & 3 - Tối ưu chuyển đổi:</span> Chạy Ads liên tục 500k/ngày. Cùng lễ tân đo lường chất lượng tin nhắn và điều chỉnh kịch bản chốt khách đến tập thử.</li>
+            <li><span class="highlight">Tuần 4 - Đánh giá:</span> Báo cáo số lượng học viên mới đăng ký và lên kịch bản video cho tháng tiếp theo.</li>
+        </ul>
+        <p style="text-align: center; margin-top: 20px; font-weight: bold; color: #bbf7d0;">Mục tiêu: Dùng 15 triệu Ads để mang về học viên thật, không nuôi tệp khách ảo!</p>
+    </div>
+</div>
+
+</body>
+</html>
