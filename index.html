@@ -351,6 +351,20 @@
             .content-grid {
                 grid-template-columns: 1fr 1fr;
             }
+            .funnel-container {
+                flex-direction: row !important;
+            }
+            .funnel-arrow {
+                transform: rotate(0deg) !important;
+            }
+        }
+
+        .funnel-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            transform: rotate(90deg);
         }
 
         .content-grid {
@@ -403,7 +417,7 @@
     <!-- Phân Tích Dữ Liệu Section -->
     <div style="background-color: white;">
         <div class="section">
-            <h2>Phân Tích Tệp Khách Hàng (Audience Insight)</h2>
+            <h2>Phân Tích Đặc Điểm Khách Hàng (Từ Số Liệu Thật)</h2>
             <div style="text-align: center; margin-bottom: 30px; color: var(--text-light);">
                 Dựa trên dữ liệu thực tế của Fanpage Yoga Hoa Sen DT.
             </div>
@@ -416,12 +430,12 @@
                         <canvas id="ageGenderChart"></canvas>
                     </div>
                     <div class="card-alert" style="padding: 15px; border-radius: 8px; margin-top: 15px;">
-                        <h4 style="color: #9f1239; margin-bottom: 5px;">🚨 Báo Động: Tệp Nam Quá Cao (46.3%)</h4>
-                        <p style="font-size: 0.9rem;">Theo kinh nghiệm ngành, tỷ lệ khách nam đi tập Yoga offline chỉ ở mức 5-10%. Tệp nam trên page chủ yếu tương tác ảo; tỷ lệ chuyển đổi cực thấp, gần như không đáng kể.</p>
+                        <h4 style="color: #9f1239; margin-bottom: 5px;">🚨 Báo Động: Khách Nam Quá Đông (46.3%)</h4>
+                        <p style="font-size: 0.9rem;">Thông thường, khách nam đi tập Yoga tại phòng chỉ ở mức 5-10%. Việc có quá nhiều nam giới tương tác trên trang chủ yếu là tương tác "ảo" (xem cho vui); khả năng họ bỏ tiền ra mua thẻ tập là cực kỳ thấp.</p>
                     </div>
                     <div class="card-success" style="padding: 15px; border-radius: 8px; margin-top: 15px; border-left: 4px solid var(--primary); background: var(--bg-color);">
-                        <h4 style="color: var(--primary-dark); margin-bottom: 5px;">💡 Điểm Sáng: Nữ 25-44 Tuổi</h4>
-                        <p style="font-size: 0.9rem;">Chiếm 41.5% - là "mỏ vàng" đã có thu nhập. Nhóm này thường có nhu cầu chăm sóc sức khỏe do đặc thù công việc - giả thuyết này sẽ được kiểm chứng qua tỷ lệ đăng ký phễu mồi.</p>
+                        <h4 style="color: var(--primary-dark); margin-bottom: 5px;">💡 Điểm Sáng: Nhóm Nữ 25-44 Tuổi</h4>
+                        <p style="font-size: 0.9rem;">Chiếm 41.5% - đây là nhóm "khách hàng vàng" đã có thu nhập ổn định. Nhóm này thường có nhu cầu chăm sóc sức khỏe thật sự do đặc thù công việc - chúng ta có thể kiểm chứng bằng các gói kiểm tra sức khỏe/tập thử.</p>
                     </div>
                 </div>
 
@@ -433,7 +447,7 @@
                     </div>
                     <div class="card-alert" style="padding: 15px; border-radius: 8px; margin-top: 15px;">
                         <h4 style="color: #9f1239; margin-bottom: 5px;">🚨 Lỗ Hổng: Sai Lệch Địa Lý (Chỉ 20.2% HCM)</h4>
-                        <p style="font-size: 0.9rem;">Yoga là mảng Local (Bán kính 3-5km). Gần 80% Follower ở tỉnh/nước khác. Chạy Ads hiển thị vào tệp này là đốt tiền vô ích.</p>
+                        <p style="font-size: 0.9rem;">Yoga là ngành dịch vụ phục vụ khách ở gần (chỉ đi lại trong bán kính 3-5km). Trong khi đó, gần 80% người theo dõi trang lại ở tỉnh/nước khác. Nếu bỏ tiền quảng cáo cho nhóm này thì hoàn toàn lãng phí.</p>
                     </div>
                 </div>
                 
@@ -447,13 +461,47 @@
                         <div>
                             <div class="card-alert" style="padding: 15px; border-radius: 8px; margin-bottom: 15px;">
                                 <h4 style="color: #9f1239; margin-bottom: 5px;">🚨 Báo Động: Khủng Hoảng Thừa (Spam)</h4>
-                                <p style="font-size: 0.9rem;">Đăng tới 126 bài trong 90 ngày (hơn 40 bài/tháng). Tần suất quá rác khiến trang có dấu hiệu bị giảm phân phối tự nhiên (bóp reach) nghiêm trọng.</p>
+                                <p style="font-size: 0.9rem;">Đăng tới 126 bài trong 90 ngày (hơn 40 bài/tháng). Việc đăng bài quá nhiều (như bị spam) khiến hệ thống Facebook bị "rối", không biết chính xác khách hàng mục tiêu của phòng tập là ai, từ đó hiển thị bài viết cho những người kém chất lượng.</p>
                             </div>
                             <div class="card-success" style="padding: 15px; border-radius: 8px; border-left: 4px solid var(--primary); background: var(--bg-color);">
                                 <h4 style="color: var(--primary-dark); margin-bottom: 5px;">💡 Điểm Sáng: Sức Mạnh Của Video Ngắn (Reels)</h4>
-                                <p style="font-size: 0.9rem;">Reels mang lại 225.516 Lượt xem và 1.191 Tương tác. Tuy nhiên, tỷ lệ tương tác/view chỉ đạt ~0.53% (chuẩn ngành 1-3%). Kết hợp với số liệu địa lý & giới tính, có thể thấy nội dung đang thu hút sai tệp. Cần dồn lực làm Reels cực chất lượng thay vì spam bài rác.</p>
+                                <p style="font-size: 0.9rem;">Video ngắn (Reels) mang lại 225.516 Lượt xem và 1.191 Tương tác. Tuy nhiên, tỷ lệ người xem chịu tương tác chỉ đạt ~0.53% (mức khá thấp để tạo ra doanh thu). Kết hợp với số liệu trên, có thể thấy nội dung đang thu hút người xem "cho vui" chứ không phải khách thật. Cần dồn lực làm Video ngắn thật chất lượng thay vì đăng bài đại trà.</p>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Chart 4: Funnel -->
+                <div class="card" style="grid-column: 1 / -1;">
+                    <h3 style="font-size: 1.2rem; color: var(--primary-dark); margin-bottom: 15px; border-bottom: 1px solid var(--primary-light); padding-bottom: 10px;">4. Hiện Tượng "Khách Xem Xong Bỏ Đi" (90 Ngày Qua)</h3>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 20px; text-align: center; margin-bottom: 20px;" class="funnel-container">
+                        <div style="flex: 1; background: #eff6ff; padding: 20px; border-radius: 12px; border: 1px solid #bfdbfe;">
+                            <div style="font-size: 0.9rem; color: #1e3a8a; font-weight: 600;">Lượt Tiếp Cận (Người thấy bài)</div>
+                            <div style="font-size: 2.2rem; font-weight: 700; color: #2563eb;">488.490</div>
+                            <div style="font-size: 0.8rem; color: #60a5fa;">Độ phủ sóng rất lớn</div>
+                        </div>
+                        <div class="funnel-arrow">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </div>
+                        <div style="flex: 1; background: #fef3c7; padding: 20px; border-radius: 12px; border: 1px solid #fde68a;">
+                            <div style="font-size: 0.9rem; color: #92400e; font-weight: 600;">Vào Xem Trang (Ghé thăm)</div>
+                            <div style="font-size: 2.2rem; font-weight: 700; color: #d97706;">19.671</div>
+                            <div style="font-size: 0.8rem; color: #f59e0b;">Tò mò xem trang</div>
+                        </div>
+                        <div class="funnel-arrow">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </div>
+                        <div style="flex: 1; background: #fef2f2; padding: 20px; border-radius: 12px; border: 1px solid #fecaca;">
+                            <div style="font-size: 0.9rem; color: #9f1239; font-weight: 600;">Bấm Link Liên Hệ</div>
+                            <div style="font-size: 2.2rem; font-weight: 700; color: #e11d48;">1.732</div>
+                            <div style="font-size: 0.8rem; color: #fb7185;">Tỷ lệ: Dưới 0.4%</div>
+                        </div>
+                    </div>
+
+                    <div class="card-alert" style="padding: 15px; border-radius: 8px;">
+                        <h4 style="color: #9f1239; margin-bottom: 5px;">🚨 Báo Động: Thiếu Hụt Tương Tác Sâu</h4>
+                        <p style="font-size: 0.9rem;">Mặc dù các chương trình ưu đãi mang lại tín hiệu rất tích cực (0 phản hồi tiêu cực, bài viết kỷ niệm 8 năm đạt hơn 10.000 lượt tiếp cận và tương tác gấp 6 lần bình thường), nhưng tỷ lệ người nhấn vào link/nhắn tin vẫn thấp. Lý do không phải vì khách hàng ghét giảm giá, mà vì <strong>tỷ lệ tương tác sâu (bình luận, chia sẻ) trên toàn trang còn quá thấp</strong>. Khách hàng có quan tâm ưu đãi, nhưng chưa đủ sự tin tưởng và gắn kết để thực sự ra quyết định liên hệ.</p>
                     </div>
                 </div>
             </div>
@@ -465,31 +513,20 @@
         <h2>Thực Trạng Hiện Tại</h2>
 
         <div class="card card-alert">
-            <h3>❌ 1. Tệp Khách Sai Lệch</h3>
+            <h3>❌ 1. Khách Hàng Không Đúng Mục Tiêu</h3>
             <ul>
-                <li><span class="highlight">80% Follower không ở TP.HCM:</span> Hơn 11.500 người theo dõi nhưng đa số
-                    khác khu vực, quảng cáo vào tệp này hoàn toàn lãng phí ngân sách.</li>
-                <li><span class="highlight">Tương tác thật tụt giảm:</span> Âm ~60 lượt theo dõi/tháng do nội dung video
-                    không giữ chân được người xem (thời lượng xem chỉ 5-14 giây).</li>
+                <li><span class="highlight">80% người theo dõi không ở TP.HCM:</span> Hơn 11.500 người theo dõi nhưng đa số
+                    ở tỉnh khác, quảng cáo hiển thị cho nhóm này hoàn toàn lãng phí ngân sách.</li>
+                <li><span class="highlight">Khách hàng cũ bỏ đi:</span> Dù có lượng nhỏ người theo dõi mới, trang vẫn ghi nhận mức tăng trưởng chung là <strong>âm ~60 người/tháng</strong>. Điều này đồng nghĩa có tới <strong>hơn 100 khách hàng cũ bỏ theo dõi mỗi tháng</strong> do nội dung không còn phù hợp.</li>
             </ul>
         </div>
 
         <div class="card card-alert">
-            <h3>❌ 2. Lỗi Thuật Toán Nhận Diện</h3>
+            <h3>❌ 2. Thiếu Niềm Tin Để Chuyển Đổi (Dù Khuyến Mãi Tốt)</h3>
             <ul>
-                <li><span class="highlight">Xếp nhầm vào "Cửa hàng bách hóa":</span> AI Facebook đang phân phối nội dung
-                    cho người thích mua sắm siêu thị thay vì tệp quan tâm sức khỏe, Yoga.</li>
-                <li><span class="highlight">Spam bài (hơn 40 bài/tháng):</span> Đăng quá nhiều nội dung sai tệp khiến trang có dấu hiệu bị giảm phân phối tự nhiên (bóp reach) nghiêm trọng.</li>
-            </ul>
-        </div>
-
-        <div class="card card-alert">
-            <h3>❌ 3. Đứt Gãy Phễu Chốt Sale</h3>
-            <ul>
-                <li><span class="highlight">Có tin nhắn, KHÔNG có đơn:</span> 15 triệu ngân sách thu về 157 tin (giá rất
-                    tốt 40-70k/tin), nhưng tỷ lệ chốt = 0 do thông điệp "giảm giá sốc" gây hiểu lầm.</li>
-                <li><span class="highlight">Quảng cáo ngắt quãng:</span> Tắt/mở chiến dịch liên tục làm đứt gãy quá
-                    trình máy học của thuật toán.</li>
+                <li><span class="highlight">Khuyến mãi thu hút nhưng thiếu tương tác sâu:</span> Các bài ưu đãi có lượng tương tác tốt (trung bình 13.6/bài), nhưng chủ yếu là tương tác bề mặt (Like). 15 triệu ngân sách thu về 157 tin nhắn (giá ~95k/tin), nhưng tỷ lệ chốt thấp vì khách chưa có đủ niềm tin vững chắc vào chuyên môn của trung tâm.</li>
+                <li><span class="highlight">Quảng cáo ngắt quãng:</span> Tắt/mở chiến dịch liên tục làm hỏng sự ổn định
+                    của hệ thống tìm kiếm khách hàng.</li>
             </ul>
         </div>
     </div>
@@ -500,90 +537,57 @@
             <h2>Giải Pháp Đề Xuất</h2>
 
             <div class="card card-success">
-                <h3>✅ 1. Sửa Lỗi Kỹ Thuật & Tái Cấu Trúc</h3>
-                <p style="color: var(--text-light);">Đổi danh mục trang chuẩn về <strong>"Dịch vụ phong cách sống/Sức
-                        khỏe"</strong>. Dọn dẹp nội dung rác để AI học lại tệp khách chuẩn.</p>
+                <h3>✅ 1. Chọn Lọc Lại Khách Hàng Tiềm Năng</h3>
+                <p style="color: var(--text-light);">Khi thiết lập quảng cáo, bắt buộc phải <strong>loại bỏ hoàn toàn nam giới</strong> và chỉ hiển thị quảng cáo ở <strong>bán kính 3-5km quanh cơ sở (đường 37, Tân Quy)</strong>. Thà tiếp cận 1.000 người đúng nhu cầu, còn hơn 10.000 người ngoại tỉnh.</p>
             </div>
 
             <div class="card card-success">
-                <h3>✅ 2. Chiến Lược Nội Dung (8-12 clip/tháng)</h3>
-                <p style="color: var(--text-light);">Tập trung video dọc ngắn, lồng chữ hook mạnh 3s đầu. Bắt buộc sản xuất <strong>Video Testimonial (Học viên chia sẻ thực tế)</strong> và nhấn mạnh USP:
-                    <strong>Yoga Bay & Yoga Trị Liệu</strong>. Dừng hoàn toàn việc đăng bài vô tội vạ.
-                </p>
+                <h3>✅ 2. Thay Đổi Hoàn Toàn Cách Làm Nội Dung</h3>
+                <p style="color: var(--text-light);">Dẹp bỏ các nội dung khoe dáng, chạy theo trào lưu vô nghĩa. Tập trung 100% vào phụ nữ 25-44 tuổi bằng nội dung Trị Liệu & <strong>Cảm nhận thực tế của học viên</strong> (Ví dụ: "Chị A ở Quận 7 đã hết đau mỏi vai gáy sau 1 tháng tập Yoga Hoa Sen ra sao?").</p>
             </div>
 
             <div class="card card-success">
-                <h3>✅ 3. Vận Hành Ads Chuyên Sâu</h3>
-                <p style="color: var(--text-light);">Duy trì ngân sách <strong>15 Triệu/tháng chạy liên tục 30
-                        ngày</strong>. Tạo tệp Lookalike từ data SĐT học viên cũ. Khóa mục tiêu bán kính 3-5km quanh 90
-                    Đường 37, Tân Quy.</p>
+                <h3>✅ 3. Kết Hợp Khuyến Mãi Với Hình Ảnh Chuyên Gia</h3>
+                <p style="color: var(--text-light);">Tiếp tục phát huy các chương trình ưu đãi hấp dẫn (như dịp kỷ niệm 8 năm) vì dữ liệu cho thấy khách hàng tương tác rất tốt. Tuy nhiên, song song với ưu đãi, bắt buộc phải xây dựng nội dung chuyên gia (kiến thức sức khỏe, chia sẻ chuyên sâu) để kích thích người xem để lại <strong>bình luận, nhắn tin và chia sẻ</strong> nhằm tạo ra sự tin tưởng tuyệt đối trước khi chốt khách.</p>
             </div>
 
             <div class="card card-success">
-                <h3>✅ 4. Tối Ưu Phễu Mồi & Kịch Bản Chốt Sale</h3>
-                <p style="color: var(--text-light);">Không báo giá ngay hay mời tập thử miễn phí chung chung. Thiết kế các phễu mồi chuyên sâu như <strong>"Tầm soát cổ vai gáy 1-1"</strong> hoặc <strong>"Gói trị liệu 7 ngày 199k"</strong> để lọc khách chất lượng cao đến trải nghiệm thực tế.</p>
+                <h3>✅ 4. Tối Ưu Các Gói Dịch Vụ Mở Đầu & Kịch Bản Chốt Khách</h3>
+                <p style="color: var(--text-light);">Không báo giá ngay hay mời tập thử miễn phí chung chung. Thiết kế các gói dịch vụ chuyên sâu như <strong>"Đánh giá tư thế cổ vai gáy 1-1"</strong> để thu hút khách hàng có chất lượng cao (thực sự có nhu cầu) đến trải nghiệm.</p>
             </div>
 
             <div class="card card-success">
-                <h3>✅ 5. Chiến Lược Giữ Chân & Referral</h3>
-                <p style="color: var(--text-light);">Tư vấn cho team Sale/Lễ tân xây dựng chiến dịch <strong>Referral (Khách cũ giới thiệu khách mới)</strong> và kịch bản chăm sóc gia hạn, giúp tối ưu vòng đời khách hàng và giảm áp lực cho Facebook Ads.</p>
+                <h3>✅ 5. Chiến Lược Giữ Chân & Khách Giới Thiệu Khách</h3>
+                <p style="color: var(--text-light);">Hỗ trợ Lễ tân xây dựng chiến dịch <strong>Khách cũ giới thiệu khách mới</strong> và kịch bản chăm sóc hỏi han sức khỏe, giúp trung tâm tự có thêm khách mà không cần tốn thêm tiền quảng cáo.</p>
             </div>
         </div>
     </div>
 
-    <!-- Lộ Trình Section -->
-    <div class="section">
-        <h2>Lộ Trình Triển Khai</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-title">Tuần 1: Tái thiết & Làm sạch</div>
-                <p style="color: var(--text-light); font-size: 0.95rem;">Xử lý triệt để lỗi kỹ thuật Fanpage, thiết lập
-                    tệp quảng cáo chuẩn. Xuất bản 3 video "mồi" chất lượng cao để kích thích AI nhận diện lại.</p>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-title">Tuần 2 & 3: Tăng tốc & Chuyển đổi</div>
-                <p style="color: var(--text-light); font-size: 0.95rem;">Chạy Ads liên tục 500k/ngày. Phối hợp sát sao
-                    cùng Lễ tân để đo lường, tinh chỉnh kịch bản inbox chốt khách đến tập thử.</p>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-title">Tuần 4: Đo lường & Mở rộng</div>
-                <p style="color: var(--text-light); font-size: 0.95rem;">Đánh giá ROI (Số lượng học viên thực tế đăng
-                    ký/Ngân sách). Lên kịch bản nội dung và chiến lược scale cho tháng tiếp theo.</p>
-            </div>
-        </div>
-    </div>
+
 
     <!-- Pricing & CTA Section -->
     <div style="background-color: white; padding-bottom: 60px;">
         <div class="section">
             <h2>Mức Đầu Tư & Cam Kết</h2>
 
-            <div class="card" style="text-align: center; border-color: var(--primary-light);">
-                <h3 style="color: var(--primary-dark); margin-bottom: 15px;">Mục Tiêu Cốt Lõi</h3>
-                <p style="font-size: 1.1rem; color: var(--text-main); font-weight: 500;">
-                    Dùng ngân sách Ads để mang về <span
-                        style="color: var(--primary-darker); font-weight: 700; background: var(--primary-light); padding: 2px 8px; border-radius: 4px;">HỌC
-                        VIÊN THẬT</span><br>Kiên quyết không nuôi tệp khách ảo!
-                </p>
-            </div>
+
 
             <div class="pricing-box">
                 <div style="font-size: 1.2rem; font-weight: 600;">Gói Vận Hành & Tối Ưu Toàn Diện</div>
                 <div class="price-amount">6.000.000đ<span
                         style="font-size: 1rem; color: #bbf7d0; font-weight: 400;">/tháng</span></div>
-                <div class="price-desc">(Phí dịch vụ trọn gói - Ngân sách Ads trung tâm tự chi trả qua thẻ)</div>
+                <div class="price-desc">(Phí dịch vụ trọn gói - Ngân sách quảng cáo trung tâm tự chi trả qua thẻ)</div>
 
                 <div style="text-align: left; max-width: 550px; margin: 0 auto 30px; font-size: 0.95rem; background: rgba(0,0,0,0.15); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
                     <p style="margin-bottom: 12px; font-weight: 600; color: var(--accent); font-size: 1.05rem;">Chi tiết phân bổ ngân sách 6.000.000đ:</p>
                     <ul style="margin: 0; padding-left: 5px;">
-                        <li style="color: #fff; margin-bottom: 12px;"><span style="color: #fff;"><strong>1.500.000đ (Tối ưu Hệ thống):</strong> Dọn dẹp lỗi Fanpage, set up tệp quảng cáo chuẩn (Local) & Tối ưu AI Facebook.</span></li>
-                        <li style="color: #fff; margin-bottom: 12px;"><span style="color: #fff;"><strong>3.000.000đ (Sản xuất Content):</strong> Chi phí lên kịch bản, quay & dựng 8-12 Video Reels chất lượng cao (bao gồm Video Testimonial).</span></li>
-                        <li style="color: #fff; margin-bottom: 5px;"><span style="color: #fff;"><strong>1.500.000đ (Vận hành & Chốt Sale):</strong> Theo dõi Ads hàng ngày, thiết kế Phễu mồi & training kịch bản chốt khách cho Lễ tân.</span></li>
+                        <li style="color: #fff; margin-bottom: 12px;"><span style="color: #fff;"><strong>1.500.000đ (Tối ưu Hệ thống):</strong> Dọn dẹp lỗi trang Facebook, sửa lại khu vực quảng cáo chuẩn (3-5km) & tối ưu để Facebook phân phối đúng người.</span></li>
+                        <li style="color: #fff; margin-bottom: 12px;"><span style="color: #fff;"><strong>3.000.000đ (Sản xuất Bài Viết/Video):</strong> Chi phí lên kịch bản, quay & dựng 8-12 Video ngắn chất lượng cao (bao gồm các video Cảm nhận của học viên thật).</span></li>
+                        <li style="color: #fff; margin-bottom: 5px;"><span style="color: #fff;"><strong>1.500.000đ (Vận hành & Hỗ trợ Chốt Khách):</strong> Theo dõi quảng cáo hàng ngày, thiết kế các chương trình khuyến mãi đầu vào & hướng dẫn kịch bản tư vấn khách cho Lễ tân.</span></li>
                     </ul>
                 </div>
 
-                <a href="javascript:void(0)" onclick="alert('Cảm ơn bạn! Chúng tôi sẽ liên hệ ngay để chốt hợp đồng.')"
-                    class="btn">Ký Hợp Đồng Ngay</a>
+
             </div>
 
             <div class="guarantee">
